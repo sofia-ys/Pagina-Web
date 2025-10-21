@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            GAMBLING ADDICT!!
+        </title>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css"></link>
+    </head>
+    <body>
+        <h1>
+            Mi Lista de Peliculas
+        </h1>
+        <section id="display-pelis">
+            <ul id="lista-pelis">
+                <li>Titulo, Director -- Ano</li>
+            </ul>
+        </section>
+        <form id="agregar">
+            <h2>
+                Agregar Pelicula
+            </h2>
+            <label for="titulo">Titulo:</label>
+            <input type="text" id="titulo">
+
+            <label for="director">Director:</label>
+            <input type="text" id="director">
+
+            <label for="ano">Ano:</label>
+            <input type="number" min=1000 max=2050 step=1 id="ano">
+
+            <button type="submit">Submit</button>
+        </form>
+        <form id="buscar">
+            <h2>
+                Buscar Pelicula
+            </h2>
+            <label for="buscar-dir">Director:</label>
+            <input type="text" id="buscar-dir">
+
+            <button type="submit" id="submit-btn">Buscar</button>
+        </form>
+        <form>
+            <br>
+            <button type="click" id="show-btn">Show All</button>
+        </form>
+    </body>
+</html>
