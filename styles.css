@@ -1,11 +1,11 @@
-.nav-bar {
-  background-color: #00F5D4;
+#navbar {
   position: sticky;
   top: 0;
   overflow: hidden;
+  background-color: #00F5D4;
 }
 
-.nav-bar a {
+#navbar a {
   float: left;
   color: black;
   text-align: center;
@@ -14,17 +14,16 @@
   font-size: 17px;
 }
 
-.nav-bar a:hover {
+#navbar a[href="#login"], #navbar a[href="#wallet"] {
+  float: right;
+}
+
+#navbar a:hover {
   background-color: #9B5DE5;
   color: black;
 }
 
-.nav-bar a[href="#ads"]:hover {
+#navbar a[href="#ads"]:hover {
     background-color: #F15BB5;
     color: black;
-}
-
-.nav-bar a.active {
-  background-color: #04AA6D;
-  color: white;
 }

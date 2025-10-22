@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <script src="script.js" defer></script>
+        <link rel="stylesheet" href="styles.css"></link>
+    </head>
+
+    <body>
+        <header>
+            <h1>GAMBLE HERE NOW!!</h1>
+        </header>
+
+        <!-- NAVIGATION BAR -->
+        <div id="navbar">
+            <a href="#home">HOME</a>
+            <a href="#games">GAMES</a>
+            <a href="#sportsbets">SPORTS BETS</a>
+            <a href="#ads">ADS</a>
+            <a href="login.html" id="login-page">LOGIN</a>
+            <a href="#wallet" id="wallet-page">WALLET</a>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="login-form">
+            <h2>Login</h2>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password">
+
+            <button type="submit">Log in</button>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <form id="register-option">
+            <p>Not a member yet?</p>
+            <button type="submit">Register</button>
+        </form>
+
+        <form id="register-form">
+            <h2>Register</h2>
+
+            <label for="registerUsername">Username:</label>
+            <input type="text" id="registerUsername">
+
+            <label for="registerPassword">Password:</label>
+            <input type="password" id="registerPassword">
+
+            <label for="confirmPassword">Confirm password:</label>
+            <input type="password" id="confirmPassword">
+
+            <label for="adult">Are you over 18? </label>
+            <input type="checkbox" id="adult">
+
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
