@@ -14,12 +14,49 @@
         <!-- NAVIGATION BAR -->
         <div id="navbar">
             <a href="index.html" id="home-page">HOME</a>
-            <a href="casino.html" id="casino-page">CASINO</a>
             <a href="sportsbets.html" id="sportsbets-page">SPORTS BETS</a>
             <a href="ads.html" id="ads-page">ADS</a>
             <a href="login.html" id="login-page">LOGIN</a>
             <a href="account.html" id="account-page">ACCOUNT</a>
         </div>
+
+    <div class="main-content">
+    <form id="betting-form">
+        <h2>Bet Now!</h2>
+
+        <select name="team-select" id="team-select">
+            <option value="" disabled selected>Select team</option>
+            <option value="Los Angeles Dodgers">Los Angeles Dodgers</option>
+            <option value="Atlanta Braves">Atlanta Braves</option>
+            <option value="New York Yankees">New York Yankees</option>
+            <option value="Houston Astros">Houston Astros</option>
+            <option value="Chicago Cubs">Chicago Cubs</option>
+        </select>
+
+        <label for="bet-amount">Amount: €</label>
+        <input type="number" id="bet-amount" min="0" max="1000" step="1">
+
+        <div class="multiplier-grid">
+            <button type="button" class="multiplier-btn" data-multiplier="0.5">0.5x</button>
+            <button type="button" class="multiplier-btn" data-multiplier="1">1x</button>
+            <button type="button" class="multiplier-btn" data-multiplier="2">2x</button>
+            <button type="button" class="multiplier-btn" data-multiplier="5">5x</button>
+            <button type="button" class="multiplier-btn" data-multiplier="10">10x</button>
+        </div>
+
+        <button type="submit">Confirm</button>
+        <p id="bet-error"></p>
+    </form>
+    </div>
+
+    <div class="main-content">
+        <h2>Results</h2>
     
+        <section id="outcomes">
+            <p>The <span id="team-name"></span> <span id="win-status"></span></p>
+            <p id="win-message">Total winnings: €<span id="winnings"></span></p>
+            <p id="loss-message">Total losses: €<span id="losses"></span></p>
+        </section>
+    </div>
     </body>
 </html>

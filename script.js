@@ -45,6 +45,12 @@ function loginUser(inputUsername, inputPassword){
     loginError.textContent = ""  // clearing previous message
     loginError.style.display = "block"
 
+    if (!inputUsername || !inputPassword){  /// if any ba
+        console.log("Please fill in all fields")
+        loginError.textContent = "Please fill in all fields"
+        return
+    }
+
     const user = users.find(u => u.username === inputUsername)  // if it doesn't exist, user = undefined else it's the username+password object
     if (user && user.password === inputPassword){  // if the username exists AND the password matches
         console.log("Login succesful!")
@@ -101,6 +107,12 @@ function registerUser(registerUsername, registerPassword, confirmPassword, adult
     registerError.textContent = ""  // clearing previous message
     registerError.style.display = "block"
 
+    if (!registerUsername || !registerPassword || !confirmPassword){  /// if any ba
+        console.log("Please fill in all fields")
+        registerError.textContent = "Please fill in all fields"
+        return
+    }
+
     if (adult){  // first check if adult
         if (registerPassword === confirmPassword){  // now check if passwords match
         console.log("Password registered")
@@ -145,8 +157,6 @@ if (signoutForm){
 // wallet functionalities
 const balanceNumber = document.getElementById("balance-number")
 const activeUser = users.find(u => u.username === loggedInUser)
-balanceNumber.textContent = activeUser.balance
-
 const amountFunctions = document.getElementById("amount-functions")
 const withdrawHeader = document.getElementById("withdraw-header")
 const depositHeader = document.getElementById("deposit-header")
@@ -155,6 +165,7 @@ const depositBtn = document.getElementById("deposit-button")
 const walletForm = document.getElementById("wallet-form")
 
 if (walletForm) {  // only attach listener if it exists
+    balanceNumber.textContent = activeUser.balance
     amountFunctions.style.display = "none"
     
     withdrawBtn.addEventListener("click", (event) => {
@@ -191,8 +202,87 @@ if (walletForm) {  // only attach listener if it exists
     })
 }
 
-// SCAMMING WITH ADS
-const ad01 = document.getElementById("ad01")
-ad01.addEventListener("click", () => {
-    alert("VIRUS INCOMING!")
+// SPORTS BETTING FUNCTIONALITIES
+const bettingForm = document.getElementById("betting-form")
+const betError = document.getElementById("bet-error")
+
+const team = document.getElementById("team-name")
+const winStatus = document.getElementById("win-status")
+const winMsg = document.getElementById("win-message")
+const lossMsg = document.getElementById("loss-message")
+const winnings = document.getElementById("winnings")
+const losses = document.getElementById("losses")
+const outcomes = document.getElementById("outcomes")
+
+if (bettingForm){
+    outcomes.style.display = "none"
+
+    bettingForm.addEventListener("submit", (event) => {
+        event.preventDefault()
+        winMsg.style.display = "none"
+        lossMsg.style.display = "none"
+        betError.textContent = ""  // clearing previous message
+        if (!loggedInUser) {
+            betError.textContent = "Log in first to play"
+            return}
+        
+        const betAmount = Number(document.getElementById("bet-amount").value)
+        const teamName = document.getElementById("team-select").value
+
+        if (betAmount > activeUser.balance){
+            betError.textContent = "Insufficient balance"
+            return}
+    
+        activeUser.balance -= betAmount  // removing bet from the balance
+        localStorage.setItem("users", JSON.stringify(users))  // storing new balance
+    
+        const result = playBet(betAmount, selectedMultiplier)
+
+        activeUser.balance += Number(result.winnings)  // adding winnings to balance
+        localStorage.setItem("users", JSON.stringify(users))  // storing new balance
+
+        team.textContent = teamName
+        outcomes.style.display = "block"
+
+        if (result.won){
+            winStatus.textContent = "won"
+            winMsg.style.display = "block"
+            winnings.textContent = result.winnings
+        }
+        else{
+            winStatus.textContent = "lost"
+            lossMsg.style.display = "block"
+            losses.textContent = betAmount
+        }
+
+        bettingForm.reset()
+    })
+}
+
+const multiplierButtons = document.querySelectorAll(".multiplier-btn")
+let selectedMultiplier = 1  // default value
+
+multiplierButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        multiplierButtons.forEach(btn => btn.classList.remove("selected"))
+        button.classList.add("selected")
+        selectedMultiplier = Number(button.dataset.multiplier)
+    })
 })
+
+function playBet(betAmount, multiplier) {
+    const winProbability = Math.random() * 0.4 + 0.3  // the win probability, something somewhat reasonable 0.3--0.7 range
+    const outcome = Math.random() 
+    let won = false
+    let winnings = 0
+
+    if (outcome <= winProbability) {
+        won = true
+        winnings = betAmount * multiplier  // apply multiplier if win
+    }
+
+    return {
+        won: won,
+        winnings: winnings,
+    }
+}
