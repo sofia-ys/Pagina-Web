@@ -23,12 +23,32 @@
     
     </body>
 
-    <!-- SIGN OUT FORM -->
-    <form id="signout-form">
-        <h2>Sign out</h2>
-        <button type="submit">Sign out</button>
-    </form>
+    <div class="main-content">
+        <!-- WALLET -->
+        <form id="wallet-form">
+            <h2>My Wallet</h2>
+            <p>Balance: €<span id="balance-number"></span></p>
 
-    <!-- WALLET -->
+            <div class="wallet-buttons">
+                <button type="click" id="withdraw-button">Withdraw</button>
+                <button type="click" id="deposit-button">Deposit</button>
+            </div>
+
+            <div id="amount-functions">
+                <h3 id="withdraw-header">Withdrawal</h3>
+                <h3 id="deposit-header">Deposit</h3>
+
+                <label for="amount">Amount: €</label>
+                <input type="number" id="amount" min="0" max="1000" step="1">
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+
+        <!-- SIGN OUT FORM -->
+        <form id="signout-form">
+            <button type="submit">Sign out</button>
+        </form>
+    </div>
 
 </html>

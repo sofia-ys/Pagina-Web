@@ -21,40 +21,49 @@
             <a href="account.html" id="account-page">ACCOUNT</a>
         </div>
 
+        <div class="main-content">
         <!-- LOGIN FORM -->
-        <form id="login-form">
-            <h2>Login</h2>
+        <div class="login-container">
+            <form id="login-form">
+                <h2>Login</h2>
 
-            <label for="username">Username:</label>
-            <input type="text" id="username">
+                <label for="username">Username:</label>
+                <input type="text" id="username">
 
-            <label for="password">Password:</label>
-            <input type="password" id="password">
+                <label for="password">Password:</label>
+                <input type="password" id="password">
 
-            <button type="submit">Log in</button>
-        </form>
+                <p id="login-error" class="error-message"></p>
 
-        <!-- REGISTER FORM -->
-        <form id="register-option">
-            <p>Not a member yet? <span><button type="submit">Register</button></span></p>
-        </form>
+                <button type="submit">Log in</button>
+            </form>
 
-        <form id="register-form">
-            <h2>Register</h2>
+            <!-- REGISTER FORM -->
+            <form id="register-option">
+                <p>Not a member yet?</p>
+                <button type="submit">Register</button>
+            </form>
 
-            <label for="registerUsername">Username:</label>
-            <input type="text" id="registerUsername">
+            <form id="register-form">
+                <h2>Register</h2>
 
-            <label for="registerPassword">Password:</label>
-            <input type="password" id="registerPassword">
+                <label for="registerUsername">Username:</label>
+                <input type="text" id="registerUsername">
 
-            <label for="confirmPassword">Confirm password:</label>
-            <input type="password" id="confirmPassword">
+                <label for="registerPassword">Password:</label>
+                <input type="password" id="registerPassword">
 
-            <label for="adult">Are you over 18? </label>
-            <input type="checkbox" id="adult">
+                <label for="confirmPassword">Confirm password:</label>
+                <input type="password" id="confirmPassword">
 
-            <button type="submit">Submit</button>
-        </form>
+                <label for="adult">Are you over 18? </label>
+                <input type="checkbox" id="adult">
+
+                <p id="register-error" class="error-message"></p>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        </div>
     </body>
 </html>
