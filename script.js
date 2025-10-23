@@ -190,3 +190,9 @@ if (walletForm) {  // only attach listener if it exists
         amountFunctions.style.display = "none"
     })
 }
+
+// SCAMMING WITH ADS
+const ad01 = document.getElementById("ad01")
+ad01.addEventListener("click", () => {
+    alert("VIRUS INCOMING!")
+})
