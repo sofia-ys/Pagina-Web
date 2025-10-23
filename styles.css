@@ -1,3 +1,4 @@
+/* NAVIGATION BAR */
 #navbar {
   position: sticky;
   top: 0;
@@ -14,7 +15,7 @@
   font-size: 17px;
 }
 
-#navbar a[href="#login"], #navbar a[href="#wallet"] {
+#navbar a[href="login.html"], #navbar a[href="account.html"] {
   float: right;
 }
 
@@ -23,7 +24,9 @@
   color: black;
 }
 
-#navbar a[href="#ads"]:hover {
+#navbar a[href="ads.html"]:hover {
     background-color: #F15BB5;
     color: black;
 }
+
+/* LOGIN PAGE */
