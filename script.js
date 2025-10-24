@@ -222,6 +222,7 @@ if (bettingForm){
         winMsg.style.display = "none"
         lossMsg.style.display = "none"
         betError.textContent = ""  // clearing previous message
+
         if (!loggedInUser) {
             betError.textContent = "Log in first to play"
             return}
@@ -229,12 +230,19 @@ if (bettingForm){
         const betAmount = Number(document.getElementById("bet-amount").value)
         const teamName = document.getElementById("team-select").value
 
+        if (!betAmount || !teamName){
+            console.log("Please fill in all fields")
+            betError.textContent = "Please fill in all fields"
+            return}
+
         if (betAmount > activeUser.balance){
             betError.textContent = "Insufficient balance"
             return}
     
         activeUser.balance -= betAmount  // removing bet from the balance
         localStorage.setItem("users", JSON.stringify(users))  // storing new balance
+
+        bettingForm.reset()
     
         const result = playBet(betAmount, selectedMultiplier)
 
@@ -255,7 +263,6 @@ if (bettingForm){
             losses.textContent = betAmount
         }
 
-        bettingForm.reset()
     })
 }
 
@@ -271,7 +278,21 @@ multiplierButtons.forEach(button => {
 })
 
 function playBet(betAmount, multiplier) {
-    const winProbability = Math.random() * 0.4 + 0.3  // the win probability, something somewhat reasonable 0.3--0.7 range
+    // adjusting win probability segun the mutliplier (more multiplier, lower chance)
+    let winProbability = Math.random() * 0.4 + 0.3  // the win probability, something somewhat reasonable 0.3--0.7 range
+    if (multiplier == 10){
+        winProbability = Math.random() * 0.4
+    }
+    else if (multiplier == 5){
+        winProbability = Math.random() * 0.4 + 0.1
+    }
+    else if (multiplier == 2){
+        winProbability = Math.random() * 0.4 + 0.2
+    }
+    else if (multiplier == 0.5){
+        winProbability = Math.random() * 0.4 + 0.4
+    }
+
     const outcome = Math.random() 
     let won = false
     let winnings = 0
