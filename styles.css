@@ -21,6 +21,19 @@ h2 {
   padding: 0 5%;
 }
 
+.content-box {
+  background-color: #272822;
+  padding: 8%;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  margin-bottom: 2rem;
+}
+
+.content-box table {
+  width: 100%;
+}
+
 /* NAVIGATION BAR Y HEADER*/
 #navbar {
   font-family: "Inter", "Josefin Sans", "Roboto", sans-serif;
@@ -121,6 +134,17 @@ button {
   box-sizing: border-box;
 }
 
+.betting-box {
+  background-color: #272822;
+  padding: 8%;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 2rem;
+}
+
+
 #adult {
   width: auto;
   margin-left: 0.5rem;
@@ -177,7 +201,8 @@ button:hover {
 }
 
 #signout-form {
-  margin-top: 10%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* FOOTER */
@@ -308,6 +333,13 @@ caption {
   border-radius: 6px;
 }
 
+#outcomes p {
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+
 .multiplier-btn:hover {
   background-color: #00f5d4;
 }
@@ -315,6 +347,9 @@ caption {
 .multiplier-btn.selected {
   background-color: #9B5DE5;
 }
+
+
+
 
 /* MOBILE ADJUSTMENTS */
 @media (max-width: 600px) {
