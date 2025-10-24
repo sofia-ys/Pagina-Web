@@ -2,7 +2,7 @@
 const users = JSON.parse(localStorage.getItem("users")) || [
     {username: "gamblingoverfood420", password: "poorpeople123", balance: -133},
     {username: "TopGun115", password: "GIVEm3MONEY", balance: 82},
-    {username: "abc", password: "123", balance: 100}
+    {username: "professor", password: "Passw0rd!", balance: 100}
 ]  // if the local storage is empty we use our default accounts
 
 const loggedInUser = localStorage.getItem("loggedInUser")
